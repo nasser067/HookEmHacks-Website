@@ -6,6 +6,7 @@ import {
   Calendar,
   ChevronDown,
   ClipboardList,
+  Download,
   HelpCircle,
   Mail,
   MapPin,
@@ -13,6 +14,7 @@ import {
 } from "lucide-react";
 
 import hookemLogo from "@/assets/hookem-logo.png";
+import sponsorshipPdf from "@/assets/Sponsorship.pdf";
 
 // shadcn/ui
 import { Button } from "@/components/ui/button";
@@ -286,11 +288,24 @@ export default function App() {
                 <div className="rounded-2xl border bg-secondary/50 p-4">
                   <div className="font-medium">Sponsor packet</div>
                   <div className="mt-2 text-sm text-muted-foreground">
-                    Add a PDF link later (levels, benefits, audience stats). This card can become your download CTA.
+                    Download our sponsor packet to learn about sponsorship levels, benefits, and audience statistics.
                   </div>
+                  <a
+                    href={sponsorshipPdf}
+                    download="Sponsorship.pdf"
+                    className="inline-flex"
+                  >
+                    <Button
+                      variant="secondary"
+                      className="mt-4 rounded-2xl"
+                    >
+                      Download PDF
+                      <Download className="ml-2 size-4" />
+                    </Button>
+                  </a>
                   <Button
-                    variant="secondary"
-                    className="mt-4 rounded-2xl"
+                    variant="outline"
+                    className="mt-4 ml-2 rounded-2xl"
                     onClick={() => scrollToId("register")}
                   >
                     Get in touch
