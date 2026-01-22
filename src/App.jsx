@@ -42,10 +42,8 @@ const SITE = {
   email: "hookemhacks@gmail.com",
   location: "The University of Texas at Austin",
   socials: [
-    { name: "Instagram", href: "#" },
-    { name: "Facebook", href: "#" },
-    { name: "Twitter/X", href: "#" },
-    { name: "TikTok", href: "#" },
+    { name: "Instagram", href: "https://www.instagram.com/hookemhacks/?__d=1" },
+    { name: "LinkedIn", href: "https://www.linkedin.com/company/hook-em-hacks/?viewAsMember=true" },
   ],
 };
 
@@ -59,9 +57,7 @@ function SocialIcon({ name }) {
   const label = useMemo(() => {
     const map = {
       Instagram: "IG",
-      Facebook: "f",
-      "Twitter/X": "X",
-      TikTok: "t",
+      LinkedIn: "in",
     };
     return map[name] ?? "@";
   }, [name]);
