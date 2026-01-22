@@ -1,11 +1,9 @@
 import React, { useMemo } from "react";
-import { motion } from "framer-motion";
 import {
   ArrowRight,
   BadgeCheck,
-  Calendar,
-  ChevronDown,
   ClipboardList,
+  Download,
   HelpCircle,
   Mail,
   MapPin,
@@ -13,6 +11,7 @@ import {
 } from "lucide-react";
 
 import hookemLogo from "@/assets/hookem-logo.png";
+import sponsorshipPdf from "@/assets/Sponsorship.pdf";
 
 // shadcn/ui
 import { Button } from "@/components/ui/button";
@@ -40,10 +39,8 @@ const SITE = {
   email: "hookemhacks@gmail.com",
   location: "The University of Texas at Austin",
   socials: [
-    { name: "Instagram", href: "#" },
-    { name: "Facebook", href: "#" },
-    { name: "Twitter/X", href: "#" },
-    { name: "TikTok", href: "#" },
+    { name: "Instagram", href: "https://www.instagram.com/hookemhacks/" },
+    { name: "LinkedIn", href: "https://www.linkedin.com/company/hook-em-hacks/?viewAsMember=true" },
   ],
 };
 
@@ -57,9 +54,7 @@ function SocialIcon({ name }) {
   const label = useMemo(() => {
     const map = {
       Instagram: "IG",
-      Facebook: "f",
-      "Twitter/X": "X",
-      TikTok: "t",
+      LinkedIn: "in",
     };
     return map[name] ?? "@";
   }, [name]);
@@ -286,11 +281,24 @@ export default function App() {
                 <div className="rounded-2xl border bg-secondary/50 p-4">
                   <div className="font-medium">Sponsor packet</div>
                   <div className="mt-2 text-sm text-muted-foreground">
-                    Add a PDF link later (levels, benefits, audience stats). This card can become your download CTA.
+                    Download our sponsor packet to learn about sponsorship levels, benefits, and audience statistics.
                   </div>
+                  <a
+                    href={sponsorshipPdf}
+                    download="Sponsorship.pdf"
+                    className="inline-flex"
+                  >
+                    <Button
+                      variant="secondary"
+                      className="mt-4 rounded-2xl"
+                    >
+                      Download PDF
+                      <Download className="ml-2 size-4" />
+                    </Button>
+                  </a>
                   <Button
-                    variant="secondary"
-                    className="mt-4 rounded-2xl"
+                    variant="outline"
+                    className="mt-4 ml-2 rounded-2xl"
                     onClick={() => scrollToId("register")}
                   >
                     Get in touch
@@ -304,7 +312,7 @@ export default function App() {
               <CardContent className="space-y-4 p-6">
                 <h3 className="text-lg font-semibold">Sponsor contact</h3>
                 <div className="rounded-2xl border bg-secondary/50 p-4 text-sm text-muted-foreground">
-                  Email us at <span className="text-foreground">{SITE.email}</span> with your name,
+                  Email us at <a href={`mailto:${SITE.email}`} className="text-foreground hover:underline">{SITE.email}</a> with your name,
                   company, and what kind of partnership you're interested in.
                 </div>
 
@@ -369,7 +377,7 @@ export default function App() {
                 <div className="font-medium">Contact</div>
                 <div className="mt-3 space-y-2 text-muted-foreground">
                   <div className="flex items-center gap-2">
-                    <Mail className="size-4" /> <span>{SITE.email}</span>
+                    <Mail className="size-4" /> <a href={`mailto:${SITE.email}`} className="hover:text-foreground hover:underline">{SITE.email}</a>
                   </div>
                   <div className="flex items-center gap-2">
                     <MapPin className="size-4" /> <span>{SITE.location}</span>
@@ -381,14 +389,6 @@ export default function App() {
             <div className="mt-10 flex flex-col items-start justify-between gap-3 border-t pt-6 text-xs text-muted-foreground md:flex-row md:items-center">
               <div>
                 © {new Date().getFullYear()} {SITE.name}. Hook 'em.
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="inline-flex items-center gap-2 rounded-full border bg-secondary px-3 py-1">
-                  <BadgeCheck className="size-3.5" /> Code of Conduct (add link later)
-                </span>
-                <span className="inline-flex items-center gap-2 rounded-full border bg-secondary px-3 py-1">
-                  <BadgeCheck className="size-3.5" /> Privacy (add link later)
-                </span>
               </div>
             </div>
           </div>
