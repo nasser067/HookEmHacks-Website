@@ -74,19 +74,6 @@ function SocialIcon({ name }) {
   );
 }
 
-function MlhBadge() {
-  return (
-    <div className="w-[120px] rounded-2xl border bg-secondary p-3 text-center backdrop-blur">
-      <div className="text-xs font-semibold tracking-wide text-muted-foreground">MLH</div>
-      <div className="mt-1 text-[11px] text-muted-foreground">OFFICIAL</div>
-      <div className="mt-2 rounded-xl bg-secondary px-2 py-2 text-xs font-semibold">
-        2026
-        <div className="text-[10px] font-medium text-muted-foreground">SEASON</div>
-      </div>
-    </div>
-  );
-}
-
 export default function App() {
   const nav = [
     { id: "about", label: "About" },
@@ -161,9 +148,6 @@ export default function App() {
       {/* Hero */}
       <main id="top" className="relative">
         <section className="relative">
-          <div className="absolute top-4 right-4 md:right-8 z-20">
-            <MlhBadge />
-          </div>
           <SplineHero site={SITE} scrollToId={scrollToId} />
         </section>
 
