@@ -1,10 +1,8 @@
-import React, { useMemo } from "react";
+import React from "react";
 import {
   ArrowRight,
-  BadgeCheck,
   ClipboardList,
   Download,
-  HelpCircle,
   Mail,
   MapPin,
   Megaphone,
@@ -50,25 +48,6 @@ function scrollToId(id) {
   el.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
-function SocialIcon({ name }) {
-  const label = useMemo(() => {
-    const map = {
-      Instagram: "IG",
-      LinkedIn: "in",
-    };
-    return map[name] ?? "@";
-  }, [name]);
-
-  return (
-    <span
-      aria-hidden
-      className="grid size-10 place-items-center rounded-full border border-border bg-secondary text-sm font-semibold"
-    >
-      {label}
-    </span>
-  );
-}
-
 export default function App() {
   const nav = [
     { id: "about", label: "About" },
@@ -79,13 +58,10 @@ export default function App() {
 
   return (
     <div className="dark min-h-screen bg-background text-foreground">
-      {/* Background gradient */}
+      {/* Subtle background */}
       <div className="pointer-events-none fixed inset-0 overflow-hidden">
-        <div
-          className="absolute -top-40 left-1/2 h-[520px] w-[900px] -translate-x-1/2 rounded-full bg-primary/20 blur-3xl"
-        />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.06),transparent_55%)]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background" />
+        <div className="absolute -top-60 left-1/2 h-[320px] w-[600px] -translate-x-1/2 rounded-full bg-primary/8 blur-3xl" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/80" />
       </div>
 
       {/* Top bar */}
@@ -93,7 +69,7 @@ export default function App() {
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
           <button
             onClick={() => scrollToId("top")}
-            className="group inline-flex items-center gap-3 rounded-2xl px-2 py-1 transition hover:bg-secondary"
+            className="group inline-flex items-center gap-3 rounded-lg px-2 py-1 transition hover:bg-secondary"
             aria-label="Go to top"
           >
             <img
@@ -103,7 +79,7 @@ export default function App() {
               draggable={false}
             />
             <div className="leading-tight">
-              <div className="text-sm font-semibold tracking-tight">{SITE.name}</div>
+              <div className="font-heading text-sm font-semibold tracking-tight">{SITE.name}</div>
               <div className="text-xs text-muted-foreground">UT Austin Hackathon</div>
             </div>
           </button>
@@ -113,7 +89,7 @@ export default function App() {
               <button
                 key={item.id}
                 onClick={() => scrollToId(item.id)}
-                className="rounded-xl px-3 py-2 text-sm text-muted-foreground transition hover:bg-secondary hover:text-foreground"
+                className="rounded-lg px-3 py-2 text-sm text-muted-foreground transition hover:bg-secondary hover:text-foreground"
               >
                 {item.label}
               </button>
@@ -123,14 +99,14 @@ export default function App() {
           <div className="flex items-center gap-2">
             <Button
               variant="secondary"
-              className="hidden rounded-2xl md:inline-flex"
+              className="hidden rounded-lg md:inline-flex"
               onClick={() => scrollToId("register")}
             >
               I'm Interested
               <ArrowRight className="ml-2 size-4" />
             </Button>
             <Button
-              className="rounded-2xl"
+              className="rounded-xl"
               onClick={() => scrollToId("sponsors")}
             >
               Sponsor Us
@@ -147,22 +123,10 @@ export default function App() {
         </section>
 
         {/* Divider */}
-        <div className="relative">
-          <svg
-            viewBox="0 0 1440 120"
-            className="block w-full"
-            aria-hidden="true"
-            preserveAspectRatio="none"
-          >
-            <path
-              d="M0,96L120,80C240,64,480,32,720,42.7C960,53,1200,107,1320,133.3L1440,160L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z"
-              fill="rgba(255,255,255,0.04)"
-            />
-          </svg>
-        </div>
+        <hr className="border-t border-border" />
 
         {/* About */}
-        <section id="about" className="mx-auto max-w-7xl px-4 py-14 md:py-18">
+        <section id="about" className="mx-auto max-w-7xl px-4 py-16 md:py-20">
           <SectionHeading
             icon={Megaphone}
             kicker="What this is"
@@ -174,7 +138,7 @@ export default function App() {
         </section>
 
         {/* Register - Unified Registration Hub */}
-        <section id="register" className="mx-auto max-w-6xl px-4 py-14 md:py-18">
+        <section id="register" className="mx-auto max-w-5xl px-4 py-12 md:py-14">
           <SectionHeading
             icon={ClipboardList}
             kicker="Get Involved"
@@ -186,14 +150,16 @@ export default function App() {
         </section>
 
         {/* FAQ */}
-        <section id="faq" className="mx-auto max-w-6xl px-4 py-14 md:py-18">
+        <section id="faq" className="mx-auto max-w-5xl px-4 py-16">
           <SectionHeading
-            icon={HelpCircle}
             kicker="FAQ"
+            kickerStyle="text"
+            align="left"
+            compact
             title="Questions? We've got you"
           />
 
-          <Card className="rounded-3xl">
+          <Card className="rounded-xl">
             <CardContent className="p-6 md:p-8">
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="item-1">
@@ -261,72 +227,66 @@ export default function App() {
         </section>
 
         {/* Sponsors */}
-        <section id="sponsors" className="mx-auto max-w-6xl px-4 py-14 md:py-18">
+        <section id="sponsors" className="mx-auto max-w-6xl px-4 py-12">
           <SectionHeading
-            icon={BadgeCheck}
             kicker="Sponsors"
+            kickerStyle="text"
+            align="left"
+            compact
             title="Partner with UT Austin builders"
             desc="Sponsor to support student innovation, meet talent, run a workshop, or provide APIs and prizes."
           />
 
           <div className="grid gap-6 lg:grid-cols-2">
-            <Card className="rounded-3xl">
-              <CardContent className="space-y-4 p-6">
-                <h3 className="text-lg font-semibold">Why sponsor</h3>
+            <Card className="rounded-xl">
+              <CardContent className="space-y-5 p-6">
+                <h3 className="font-heading text-lg font-semibold">Why sponsor</h3>
                 <ul className="list-inside list-disc space-y-2 text-sm text-muted-foreground">
                   <li>Recruiting: meet motivated engineers, designers, and product thinkers</li>
                   <li>Brand: showcase your tools to hundreds of builders</li>
                   <li>Impact: help fund a free, inclusive student event</li>
                 </ul>
-                <div className="rounded-2xl border bg-secondary/50 p-4">
+                <div className="border-t border-border pt-5">
                   <div className="font-medium">Sponsor packet</div>
-                  <div className="mt-2 text-sm text-muted-foreground">
+                  <p className="mt-1 text-sm text-muted-foreground">
                     Download our sponsor packet to learn about sponsorship levels, benefits, and audience statistics.
-                  </div>
-                  <a
-                    href={sponsorshipPdf}
-                    download="Sponsorship.pdf"
-                    className="inline-flex"
-                  >
-                    <Button
-                      variant="secondary"
-                      className="mt-4 rounded-2xl"
-                    >
-                      Download PDF
-                      <Download className="ml-2 size-4" />
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    <a href={sponsorshipPdf} download="Sponsorship.pdf" className="inline-flex">
+                      <Button variant="secondary" className="rounded-lg">
+                        Download PDF
+                        <Download className="ml-2 size-4" />
+                      </Button>
+                    </a>
+                    <Button variant="outline" className="rounded-lg" onClick={() => scrollToId("register")}>
+                      Get in touch
+                      <ArrowRight className="ml-2 size-4" />
                     </Button>
-                  </a>
-                  <Button
-                    variant="outline"
-                    className="mt-4 ml-2 rounded-2xl"
-                    onClick={() => scrollToId("register")}
-                  >
-                    Get in touch
-                    <ArrowRight className="ml-2 size-4" />
-                  </Button>
+                  </div>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="rounded-3xl">
-              <CardContent className="space-y-4 p-6">
-                <h3 className="text-lg font-semibold">Sponsor contact</h3>
-                <div className="rounded-2xl border bg-secondary/50 p-4 text-sm text-muted-foreground">
+            <Card className="rounded-xl">
+              <CardContent className="space-y-5 p-6">
+                <h3 className="font-heading text-lg font-semibold">Sponsor contact</h3>
+                <p className="text-sm text-muted-foreground">
                   Email us at <a href={`mailto:${SITE.email}`} className="text-foreground hover:underline">{SITE.email}</a> with your name,
                   company, and what kind of partnership you're interested in.
-                </div>
-
-                <div className="grid gap-3 sm:grid-cols-2">
-                  <div className="rounded-2xl border bg-secondary/50 p-4">
-                    <div className="text-sm font-medium">Workshop sponsor</div>
-                    <div className="mt-2 text-sm text-muted-foreground">
-                      Lead a hands-on session and provide APIs/credits.
+                </p>
+                <div className="border-t border-border pt-5">
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <div>
+                      <div className="text-sm font-medium">Workshop sponsor</div>
+                      <p className="mt-1 text-sm text-muted-foreground">
+                        Lead a hands-on session and provide APIs/credits.
+                      </p>
                     </div>
-                  </div>
-                  <div className="rounded-2xl border bg-secondary/50 p-4">
-                    <div className="text-sm font-medium">Prize sponsor</div>
-                    <div className="mt-2 text-sm text-muted-foreground">
-                      Fund a category and help judge the winners.
+                    <div>
+                      <div className="text-sm font-medium">Prize sponsor</div>
+                      <p className="mt-1 text-sm text-muted-foreground">
+                        Fund a category and help judge the winners.
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -344,15 +304,15 @@ export default function App() {
                 <div className="mt-1 text-sm text-muted-foreground">
                   UT Austin collegiate hackathon • April 18–19, 2026
                 </div>
-                <div className="mt-4 flex items-center gap-3">
+                <div className="mt-4 flex items-center gap-4">
                   {SITE.socials.map((s) => (
                     <a
                       key={s.name}
                       href={s.href}
-                      className="rounded-2xl p-1 transition hover:bg-secondary"
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors underline-offset-4 hover:underline"
                       aria-label={s.name}
                     >
-                      <SocialIcon name={s.name} />
+                      {s.name}
                     </a>
                   ))}
                 </div>

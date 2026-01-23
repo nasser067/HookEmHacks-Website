@@ -59,7 +59,7 @@ export function FeaturesSectionWithHoverEffects({ email = "hookemhacks@gmail.com
             description: (
                 <>
                     For partnerships, mentors, and questions:{" "}
-                    <span className="font-medium text-foreground">{email}</span>
+                    <a href={`mailto:${email}`} className="font-medium text-foreground hover:underline">{email}</a>
                 </>
             ),
             icon: <IconMail />,
@@ -76,39 +76,24 @@ export function FeaturesSectionWithHoverEffects({ email = "hookemhacks@gmail.com
 }
 
 function Feature({ title, description, icon, index }) {
+    const isFirstCol = index === 0 || index === 4;
     return (
         <div
             className={cn(
-                "flex flex-col lg:border-r py-10 relative group/feature border-border",
-                (index === 0 || index === 4) && "lg:border-l border-border",
-                index < 4 && "lg:border-b border-border"
+                "flex flex-col py-10 px-10 relative group/feature transition-colors duration-200 lg:border-r border-border",
+                (index === 0 || index === 4) && "lg:border-l",
+                index < 4 && "lg:border-b",
+                isFirstCol && "border-l-2 border-border hover:border-primary",
+                !isFirstCol && "hover:bg-secondary/10"
             )}
         >
-            {index < 4 && (
-                <div
-                    className="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full pointer-events-none bg-gradient-to-t from-primary/15 to-transparent"
-                />
-            )}
-            {index >= 4 && (
-                <div
-                    className="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full pointer-events-none bg-gradient-to-b from-primary/15 to-transparent"
-                />
-            )}
-            <div className="mb-4 relative z-10 px-10 text-muted-foreground">
+            <div className="mb-4 text-muted-foreground">
                 {icon}
             </div>
-            <div className="text-lg font-bold mb-2 relative z-10 px-10">
-                <div
-                    className="absolute left-0 inset-y-0 h-6 group-hover/feature:h-8 w-1 rounded-tr-full rounded-br-full transition-all duration-200 origin-center bg-border"
-                />
-                <div
-                    className="absolute left-0 inset-y-0 h-6 group-hover/feature:h-8 w-1 rounded-tr-full rounded-br-full transition-all duration-200 origin-center opacity-0 group-hover/feature:opacity-100 bg-primary"
-                />
-                <span className="group-hover/feature:translate-x-2 transition duration-200 inline-block text-foreground">
-                    {title}
-                </span>
+            <div className="text-lg font-bold mb-2 font-heading text-foreground">
+                {title}
             </div>
-            <p className="text-sm text-muted-foreground max-w-xs relative z-10 px-10">
+            <p className="text-sm text-muted-foreground max-w-xs">
                 {description}
             </p>
         </div>
