@@ -65,6 +65,7 @@ export default {
       },
       fontFamily: {
         sans: ["Figtree Variable", "sans-serif"],
+        heading: ["Inter Variable", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
       },
     },
   },
