@@ -10,6 +10,12 @@ import {
 
 import hookemLogo from "@/assets/hookem-logo.png";
 import sponsorshipPdf from "@/assets/Sponsorship.pdf";
+import lovableLogo from "@/assets/lovable-icon-bg-dark.png";
+import featherlessLogo from "@/assets/featherless-color.png";
+import bookpeopleLogo from "@/assets/BookPeople_Logo.png";
+import auntieanneLogo from "@/assets/Auntie_Anne.png";
+import vercelLogo from "@/assets/vercelLogo.png";
+import tiffstreatsLogo from "@/assets/tiffs-treats.png";
 
 // shadcn/ui
 import { Button } from "@/components/ui/button";
@@ -38,7 +44,10 @@ const SITE = {
   location: "The University of Texas at Austin",
   socials: [
     { name: "Instagram", href: "https://www.instagram.com/hookemhacks/" },
-    { name: "LinkedIn", href: "https://www.linkedin.com/company/hook-em-hacks/?viewAsMember=true" },
+    {
+      name: "LinkedIn",
+      href: "https://www.linkedin.com/company/hook-em-hacks/?viewAsMember=true",
+    },
   ],
 };
 
@@ -54,6 +63,44 @@ export default function App() {
     { id: "register", label: "Register" },
     { id: "faq", label: "FAQ" },
     { id: "sponsors", label: "Sponsors" },
+  ];
+  const sponsors = [
+    {
+      name: "Featherless AI",
+      logo: featherlessLogo,
+      description:
+        "A high-performance inference platform that lets you run any open-source model via API with zero cold starts and no server management.",
+    },
+    {
+      name: "Vercel",
+      logo: vercelLogo,
+      description:
+        "The frontend cloud for developers, providing the speed and tools to deploy high-performance websites and incredible user experiences.",
+    },
+    {
+      name: "Lovable",
+      logo: lovableLogo,
+      description:
+        "An AI full-stack engineer that turns natural language into production-ready web apps, handling everything from UI design to backend logic.",
+    },
+    {
+      name: "BookPeople",
+      logo: bookpeopleLogo,
+      description:
+        "A legendary Austin landmark and Texas' largest independent bookstore, dedicated to community, conversation, and the joy of reading.",
+    },
+    {
+      name: "Auntie Anne’s",
+      logo: auntieanneLogo,
+      description:
+        "The gold standard of snack perfection, serving up hand-rolled soft pretzels that are always golden-brown and buttery-fresh.",
+    },
+    {
+      name: "Tiff’s Treats",
+      logo: tiffstreatsLogo,
+      description:
+        "The original warm-cookie delivery service, bringing fresh-from-the-oven treats and a little bit of magic right to your door.",
+    },
   ];
 
   return (
@@ -79,8 +126,12 @@ export default function App() {
               draggable={false}
             />
             <div className="leading-tight">
-              <div className="font-heading text-sm font-semibold tracking-tight">{SITE.name}</div>
-              <div className="text-xs text-muted-foreground">UT Austin Hackathon</div>
+              <div className="font-heading text-sm font-semibold tracking-tight">
+                {SITE.name}
+              </div>
+              <div className="text-xs text-muted-foreground">
+                UT Austin Hackathon
+              </div>
             </div>
           </button>
 
@@ -138,7 +189,10 @@ export default function App() {
         </section>
 
         {/* Register - Unified Registration Hub */}
-        <section id="register" className="mx-auto max-w-5xl px-4 py-12 md:py-14">
+        <section
+          id="register"
+          className="mx-auto max-w-5xl px-4 py-12 md:py-14"
+        >
           <SectionHeading
             icon={ClipboardList}
             kicker="Get Involved"
@@ -167,8 +221,10 @@ export default function App() {
                     Who can participate? Do I need experience?
                   </AccordionTrigger>
                   <AccordionContent>
-                    Hook 'Em Hacks is open to students of all skill levels. Beginners are welcome, and no prior
-                    hackathon experience is required. We'll have workshops and mentors to help you get started.
+                    Hook 'Em Hacks is open to students of all skill levels.
+                    Beginners are welcome, and no prior hackathon experience is
+                    required. We'll have workshops and mentors to help you get
+                    started.
                   </AccordionContent>
                 </AccordionItem>
 
@@ -177,8 +233,9 @@ export default function App() {
                     What is the hackathon format?
                   </AccordionTrigger>
                   <AccordionContent>
-                    Hook 'Em Hacks is a 24-hour, in-person hackathon on the UT Austin campus. Teams build over the
-                    weekend and demo projects in a science-fair-style expo.
+                    Hook 'Em Hacks is a 24-hour, in-person hackathon on the UT
+                    Austin campus. Teams build over the weekend and demo
+                    projects in a science-fair-style expo.
                   </AccordionContent>
                 </AccordionItem>
 
@@ -187,8 +244,9 @@ export default function App() {
                     What can I build? Is there a theme?
                   </AccordionTrigger>
                   <AccordionContent>
-                    There is no required theme. You're free to build anything — web apps, mobile apps, AI projects,
-                    games, or experimental ideas.
+                    There is no required theme. You're free to build anything —
+                    web apps, mobile apps, AI projects, games, or experimental
+                    ideas.
                   </AccordionContent>
                 </AccordionItem>
 
@@ -197,8 +255,9 @@ export default function App() {
                     How does judging work?
                   </AccordionTrigger>
                   <AccordionContent>
-                    Teams demo their projects live to judges in short, casual conversations. Judges focus on
-                    creativity, execution, impact, and clear explanations.
+                    Teams demo their projects live to judges in short, casual
+                    conversations. Judges focus on creativity, execution,
+                    impact, and clear explanations.
                   </AccordionContent>
                 </AccordionItem>
 
@@ -207,8 +266,9 @@ export default function App() {
                     What do mentors and volunteers do?
                   </AccordionTrigger>
                   <AccordionContent>
-                    Mentors help teams with technical questions, ideas, and demos. Volunteers support check-in,
-                    workshops, logistics, and overall event operations.
+                    Mentors help teams with technical questions, ideas, and
+                    demos. Volunteers support check-in, workshops, logistics,
+                    and overall event operations.
                   </AccordionContent>
                 </AccordionItem>
 
@@ -217,8 +277,9 @@ export default function App() {
                     How can companies sponsor or get involved?
                   </AccordionTrigger>
                   <AccordionContent>
-                    Sponsors can support the event through funding, prizes, workshops, or APIs. To get involved,
-                    email hookemhacks@gmail.com.
+                    Sponsors can support the event through funding, prizes,
+                    workshops, or APIs. To get involved, email
+                    hookemhacks@gmail.com.
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
@@ -236,29 +297,62 @@ export default function App() {
             title="Partner with UT Austin builders"
             desc="Sponsor to support student innovation, meet talent, run a workshop, or provide APIs and prizes."
           />
-
-          <div className="grid gap-6 lg:grid-cols-2">
+          <div className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-3">
+            {sponsors.map((sponsor) => (
+              <div
+                key={sponsor.name}
+                className="relative flex flex-col items-center justify-center rounded-2xl border border-white bg-secondary/50 p-6 text-center transition hover:bg-secondary group"
+              >
+                <img
+                  src={sponsor.logo}
+                  alt={`${sponsor.name} logo`}
+                  className="mb-4 h-16 w-auto object-contain"
+                  draggable={false}
+                />
+                <div className="text-sm font-medium">{sponsor.name}</div>
+                {/* Hover overlay */}
+                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-80 text-white opacity-0 transition-opacity group-hover:opacity-100 p-4 rounded-2xl text-sm">
+                  {sponsor.description}
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10 mb-16 grid gap-6 lg:grid-cols-2">
             <Card className="rounded-xl">
               <CardContent className="space-y-5 p-6">
-                <h3 className="font-heading text-lg font-semibold">Why sponsor</h3>
+                <h3 className="font-heading text-lg font-semibold">
+                  Why sponsor
+                </h3>
                 <ul className="list-inside list-disc space-y-2 text-sm text-muted-foreground">
-                  <li>Recruiting: meet motivated engineers, designers, and product thinkers</li>
+                  <li>
+                    Recruiting: meet motivated engineers, designers, and product
+                    thinkers
+                  </li>
                   <li>Brand: showcase your tools to hundreds of builders</li>
                   <li>Impact: help fund a free, inclusive student event</li>
                 </ul>
                 <div className="border-t border-border pt-5">
                   <div className="font-medium">Sponsor packet</div>
                   <p className="mt-1 text-sm text-muted-foreground">
-                    Download our sponsor packet to learn about sponsorship levels, benefits, and audience statistics.
+                    Download our sponsor packet to learn about sponsorship
+                    levels, benefits, and audience statistics.
                   </p>
                   <div className="mt-4 flex flex-wrap gap-2">
-                    <a href={sponsorshipPdf} download="Sponsorship.pdf" className="inline-flex">
+                    <a
+                      href={sponsorshipPdf}
+                      download="Sponsorship.pdf"
+                      className="inline-flex"
+                    >
                       <Button variant="secondary" className="rounded-lg">
                         Download PDF
                         <Download className="ml-2 size-4" />
                       </Button>
                     </a>
-                    <Button variant="outline" className="rounded-lg" onClick={() => scrollToId("register")}>
+                    <Button
+                      variant="outline"
+                      className="rounded-lg"
+                      onClick={() => scrollToId("register")}
+                    >
                       Get in touch
                       <ArrowRight className="ml-2 size-4" />
                     </Button>
@@ -269,15 +363,26 @@ export default function App() {
 
             <Card className="rounded-xl">
               <CardContent className="space-y-5 p-6">
-                <h3 className="font-heading text-lg font-semibold">Sponsor contact</h3>
+                <h3 className="font-heading text-lg font-semibold">
+                  Sponsor contact
+                </h3>
                 <p className="text-sm text-muted-foreground">
-                  Email us at <a href={`mailto:${SITE.email}`} className="text-foreground hover:underline">{SITE.email}</a> with your name,
-                  company, and what kind of partnership you're interested in.
+                  Email us at{" "}
+                  <a
+                    href={`mailto:${SITE.email}`}
+                    className="text-foreground hover:underline"
+                  >
+                    {SITE.email}
+                  </a>{" "}
+                  with your name, company, and what kind of partnership you're
+                  interested in.
                 </p>
                 <div className="border-t border-border pt-5">
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div>
-                      <div className="text-sm font-medium">Workshop sponsor</div>
+                      <div className="text-sm font-medium">
+                        Workshop sponsor
+                      </div>
                       <p className="mt-1 text-sm text-muted-foreground">
                         Lead a hands-on session and provide APIs/credits.
                       </p>
@@ -337,7 +442,13 @@ export default function App() {
                 <div className="font-medium">Contact</div>
                 <div className="mt-3 space-y-2 text-muted-foreground">
                   <div className="flex items-center gap-2">
-                    <Mail className="size-4" /> <a href={`mailto:${SITE.email}`} className="hover:text-foreground hover:underline">{SITE.email}</a>
+                    <Mail className="size-4" />{" "}
+                    <a
+                      href={`mailto:${SITE.email}`}
+                      className="hover:text-foreground hover:underline"
+                    >
+                      {SITE.email}
+                    </a>
                   </div>
                   <div className="flex items-center gap-2">
                     <MapPin className="size-4" /> <span>{SITE.location}</span>
