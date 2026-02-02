@@ -16,6 +16,7 @@ import bookpeopleLogo from "@/assets/BookPeople_Logo.png";
 import auntieanneLogo from "@/assets/Auntie_Anne.png";
 import vercelLogo from "@/assets/vercelLogo.png";
 import tiffstreatsLogo from "@/assets/tiffs-treats.png";
+import IBMLogo from "@/assets/IBMLogo.png";
 
 // shadcn/ui
 import { Button } from "@/components/ui/button";
@@ -100,6 +101,12 @@ export default function App() {
       logo: tiffstreatsLogo,
       description:
         "The original warm-cookie delivery service, bringing fresh-from-the-oven treats and a little bit of magic right to your door.",
+    },
+    {
+      name: "IBM",
+      logo: IBMLogo,
+      description:
+        "A global technology leader providing innovative solutions in cloud computing, AI, and enterprise services to drive digital transformation.",
     },
   ];
 
